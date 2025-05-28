@@ -15,12 +15,12 @@ Este é um projeto Java simples de terminal que implementa um **Gerenciador de S
 ## 🚀 Como executar
 
 ### 1. Clone o projeto
-
-```bash
+```
+bash
 git clone https://github.com/seu-usuario/gerenciador-senhas.git
 cd gerenciador-senhas
-
-2. Compile e execute
+```
+### 2. Compile e execute
 
 Se estiver usando Maven:
 mvn compile
