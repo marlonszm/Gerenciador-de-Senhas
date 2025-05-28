@@ -23,14 +23,18 @@ cd gerenciador-senhas
 ### 2. Compile e execute
 
 Se estiver usando Maven:
+```
 mvn compile
 mvn exec:java -Dexec.mainClass="org.example.Main"
+```
 
 Ou via terminal diretamente (se não estiver usando Maven):
+```
 javac -cp ".:libs/*" -d bin src/org/example/**/*.java
 java -cp ".:bin:libs/*" org.example.Main
+```
 
-📥 Entrada de E-mail e Senha
+### 📥 Entrada de E-mail e Senha
 Ao iniciar o sistema, você será solicitado a informar:
 
 Seu e-mail Gmail
@@ -39,7 +43,7 @@ A senha do app ou do seu Gmail (⚠️ Veja abaixo)
 
 O sistema enviará um código de 6 caracteres para o e-mail informado. Digite esse código corretamente para acessar o menu do gerenciador.
 
-⚠️ Sobre a Senha do Gmail
+### ⚠️ Sobre a Senha do Gmail
 Por segurança e restrições do Google, muitas vezes o envio de e-mails não funciona com sua senha normal do Gmail.
 
 ✅ Solução: Gere uma Senha de Aplicativo
@@ -53,7 +57,7 @@ Copie e use a senha gerada ao rodar o programa.
 
 💡 Essa senha é exclusiva para o programa e pode ser revogada a qualquer momento.
 
-🔐 Segurança
+### 🔐 Segurança
 Todas as senhas de serviços armazenadas são criptografadas.
 
 O OTP (código de autenticação 2FA) tem validade de 5 minutos.
