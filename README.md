@@ -1,5 +1,15 @@
 # 🔐 Gerenciador de Senhas com 2FA via E-mail
 
+![Java](https://img.shields.io/badge/Java-8+-blue.svg)
+![Maven](https://img.shields.io/badge/Build-Maven-brightgreen.svg)
+![2FA](https://img.shields.io/badge/2FA-via%20Email-orange)
+![AES](https://img.shields.io/badge/Criptografia-AES-9cf)
+![Terminal](https://img.shields.io/badge/Interface-Terminal-lightgrey)
+![Status](https://img.shields.io/badge/Status-Em%20desenvolvimento-yellow)
+![Contribuições](https://img.shields.io/badge/Contribuições-Bem--vindas-blueviolet)
+![Licença](https://img.shields.io/badge/Licença-MIT-lightgreen)
+
+
 Este é um projeto Java simples de terminal que implementa um **Gerenciador de Senhas com Autenticação de Dois Fatores (2FA)** via **e-mail**, além de funcionalidades como geração de senhas fortes e verificação de vazamento.
 
 ## ✨ Funcionalidades
