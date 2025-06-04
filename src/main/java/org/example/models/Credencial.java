@@ -1,10 +1,9 @@
 package org.example.models;
 
-// Representa uma credencial (serviço, usuário e senha criptografada)
-public class Credencial {
-    private String servico;
-    private String usuario;
-    private String senhaCriptografada;
+public final class Credencial {
+    private final String servico;
+    private final String usuario;
+    private final String senhaCriptografada;
 
     public Credencial(String servico, String usuario, String senhaCriptografada) {
         this.servico = servico;
@@ -15,4 +14,9 @@ public class Credencial {
     public String getServico() { return servico; }
     public String getUsuario() { return usuario; }
     public String getSenhaCriptografada() { return senhaCriptografada; }
+
+    @Override
+    public String toString() {
+        return "Serviço: " + servico + ", Usuário: " + usuario + ", Senha: [PROTEGIDA]";
+    }
 }

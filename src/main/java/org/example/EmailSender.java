@@ -5,6 +5,8 @@ import jakarta.mail.internet.*;
 import java.util.Properties;
 
 public class EmailSender {
+
+    // Envia um e-mail simples via SMTP
     public static void enviar(String usuarioEmail, String senhaEmail, String destino, String assunto, String corpo) {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -29,7 +31,7 @@ public class EmailSender {
             System.out.println("✅ Código enviado para: " + destino);
 
         } catch (MessagingException e) {
-            System.out.println("Erro ao enviar e-mail: " + e.getMessage());
+            System.err.println("Erro ao enviar e-mail: " + e.getMessage());
         }
     }
 }

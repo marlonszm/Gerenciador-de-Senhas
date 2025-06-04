@@ -2,19 +2,13 @@ package org.example.services;
 
 import org.example.EmailSender;
 import org.example.data.BancoSimples;
-import org.example.models.Usuario;
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
-import java.util.Random;
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
-import java.util.UUID;
-import org.example.EmailSender;
-import org.mindrot.jbcrypt.BCrypt;
+import java.security.SecureRandom;
 
 public class Autenticacao2FA {
 
+    // Realiza a autenticação 2FA enviando um código por e-mail
     public static boolean autenticar(String email, String senhaEmail) {
         Scanner sc = new Scanner(System.in);
 
@@ -36,7 +30,10 @@ public class Autenticacao2FA {
         return false;
     }
 
+    // Gera um código de 6 dígitos utilizando SecureRandom
     private static String gerarCodigo() {
-        return UUID.randomUUID().toString().substring(0, 6).toUpperCase();
+        SecureRandom random = new SecureRandom();
+        int num = random.nextInt(900000) + 100000; // Gera número entre 100000 e 999999
+        return String.valueOf(num);
     }
 }

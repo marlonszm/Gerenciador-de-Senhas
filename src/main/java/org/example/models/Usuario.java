@@ -1,9 +1,8 @@
 package org.example.models;
 
-// Representa um usuário com email e senha (armazenada como hash)
-public class Usuario {
-    private String email;
-    private String senhaHash;
+public final class Usuario {
+    private final String email;
+    private final String senhaHash;
 
     public Usuario(String email, String senhaHash) {
         this.email = email;
@@ -12,4 +11,9 @@ public class Usuario {
 
     public String getEmail() { return email; }
     public String getSenhaHash() { return senhaHash; }
+
+    @Override
+    public String toString() {
+        return "E-mail: " + email + ", SenhaHash: [PROTEGIDA]";
+    }
 }

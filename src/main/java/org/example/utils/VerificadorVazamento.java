@@ -10,6 +10,7 @@ import java.security.MessageDigest;
 public class VerificadorVazamento {
 
     public static boolean foiVazada(String senha) {
+        HttpURLConnection con = null;
         try {
             // Gera o hash SHA-1 da senha
             MessageDigest md = MessageDigest.getInstance("SHA-1");
@@ -23,19 +24,33 @@ public class VerificadorVazamento {
 
             // Consulta API com o prefixo
             URL url = new URL("https://api.pwnedpasswords.com/range/" + prefixo);
-            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
+            con.setConnectTimeout(5000);
+            con.setReadTimeout(5000);
+
+            int status = con.getResponseCode();
+            if (status != 200) {
+                throw new RuntimeException("Erro na API: status " + status);
+            }
 
             // Lê a resposta e verifica se o sufixo está presente
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String linha;
             while ((linha = in.readLine()) != null) {
-                if (linha.startsWith(sufixo)) return true;
+                if (linha.startsWith(sufixo)) {
+                    in.close();
+                    return true;
+                }
             }
             in.close();
             return false; // Senha não encontrada nos vazamentos
         } catch (Exception e) {
             throw new RuntimeException("Erro ao verificar vazamento", e);
+        } finally {
+            if (con != null) {
+                con.disconnect();
+            }
         }
     }
 }

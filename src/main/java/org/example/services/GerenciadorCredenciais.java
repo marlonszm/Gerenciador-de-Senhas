@@ -2,6 +2,7 @@ package org.example.services;
 
 import org.example.models.Credencial;
 import org.example.utils.Crypto;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,9 @@ public class GerenciadorCredenciais {
 
     // Adiciona uma nova credencial criptografando a senha
     public void adicionar(String servico, String usuario, String senha) {
+        if (!senhaForte(senha)) {
+            throw new IllegalArgumentException("Senha fraca: use pelo menos 8 caracteres, incluindo letras e números.");
+        }
         String senhaCripto = Crypto.criptografar(senha);
         lista.add(new Credencial(servico, usuario, senhaCripto));
     }
@@ -28,5 +32,10 @@ public class GerenciadorCredenciais {
             }
         }
         return null;
+    }
+
+    // Valida se a senha é forte
+    private boolean senhaForte(String senha) {
+        return senha != null && senha.length() >= 8 && senha.matches(".*[A-Za-z].*") && senha.matches(".*\\d.*");
     }
 }
