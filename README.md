@@ -32,18 +32,6 @@ cd gerenciador-senhas
 ```
 ### 2. Compile e execute
 
-Se estiver usando Maven:
-```
-mvn compile
-mvn exec:java -Dexec.mainClass="org.example.Main"
-```
-
-Ou via terminal diretamente (se não estiver usando Maven):
-```
-javac -cp ".:libs/*" -d bin src/org/example/**/*.java
-java -cp ".:bin:libs/*" org.example.Main
-```
-
 ### 📥 Entrada de E-mail e Senha
 
 Ao iniciar o sistema, você será solicitado a informar:
